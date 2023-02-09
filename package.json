@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "esbuild index.ts --bundle --minify --sourcemap --platform=node --target=es2020 --outfile=dist/index.js",
+    "postbuild": "cd dist && zip -r index.zip index.js*"
+  },
+  "name": "ts-bundle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.110",
+    "esbuild": "^0.17.6"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1311.0"
+  }
+}
