@@ -1,7 +1,9 @@
 import { Context, APIGatewayProxyResult, APIGatewayEvent } from 'aws-lambda';
-import * as aws from 'aws-sdk';
+import {SNS} from 'aws-sdk'
 
-const sns = new aws.SNS();
+console.log("creating sns")
+const sns = new SNS({region: 'us-east-1'});
+console.log("created sns");
 
 export const handler = async (event: APIGatewayEvent, context: Context): Promise<APIGatewayProxyResult> => {
   console.log(`Event: ${JSON.stringify(event, null, 2)}`);
